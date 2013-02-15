@@ -1,0 +1,2 @@
+module GettyUp
+end
