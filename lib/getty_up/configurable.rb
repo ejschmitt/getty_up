@@ -3,16 +3,18 @@ module GettyUp
     attr_writer :system_id, :system_password, :api_username, :api_password
     attr_accessor :status, :token, :secret_token
 
-    def keys
-      @keys ||= [
-        :system_id,
-        :system_password,
-        :api_username,
-        :api_password,
-        :status,
-        :token,
-        :secret_token
-      ]
+    class << self
+      def keys
+        @keys ||= [
+          :system_id,
+          :system_password,
+          :api_username,
+          :api_password,
+          :status,
+          :token,
+          :secret_token
+        ]
+      end
     end
 
     def configure

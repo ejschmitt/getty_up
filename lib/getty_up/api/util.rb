@@ -1,9 +1,10 @@
 module GettyUp
   module API
     module Util
-      def post_json(request)
+      def post_json(request, endpoint)
+        puts request
         #You may wish to replace this code with your preferred library for posting and receiving JSON data.
-        uri = URI.parse(ENDPOINT)
+        uri = URI.parse(endpoint)
         http = Net::HTTP.new(uri.host, 443)
         http.use_ssl = true
 

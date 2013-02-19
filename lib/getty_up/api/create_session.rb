@@ -1,3 +1,5 @@
+require 'getty_up/api/util'
+
 module GettyUp
   module API
     module CreateSession
@@ -7,20 +9,17 @@ module GettyUp
 
       def create_session
         request = {
-          :RequestHeader =>
-          {
-
-          },
+          :RequestHeader => {},
           :CreateSessionRequestBody =>
           {
             :SystemId => @system_id,
-            :SystemPassword => @system_pwd,
-            :UserName => @user_name,
-            :UserPassword => @user_pwd
+            :SystemPassword => @system_password,
+            :UserName => @api_username,
+            :UserPassword => @api_password
           }
         }
 
-        response = post_json(request)
+        response = post_json(request, ENDPOINT)
 
         #status = response["ResponseHeader"]["Status"]
         #token = response["CreateSessionResult"]["Token"]
