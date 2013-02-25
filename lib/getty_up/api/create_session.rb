@@ -21,9 +21,9 @@ module GettyUp
 
         response = post_json(request, ENDPOINT)
 
-        #status = response["ResponseHeader"]["Status"]
-        #token = response["CreateSessionResult"]["Token"]
-        #secure_token = response["CreateSessionResult"]["SecureToken"]
+        @token = response["CreateSessionResult"]["Token"]
+        @status = response["ResponseHeader"]["Status"]
+        @secure_token = response["CreateSessionResult"]["SecureToken"]
       end
 
     end

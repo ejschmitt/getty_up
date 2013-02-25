@@ -11,7 +11,7 @@ module GettyUp
         request = {
           :RequestHeader =>
           {
-            :Token => @token
+            :Token => @secure_token
           },
           :RenewSessionRequestBody =>
           {
@@ -19,11 +19,11 @@ module GettyUp
             :SystemPassword => @system_password
           }
         }
-        response = post_json(request)
+        response = post_json(request, ENDPOINT)
 
-        #status = response["ResponseHeader"]["Status"]
-        #token = response["RenewSessionResult"]["Token"]
-        #secure_token = response["RenewSessionResult"]["SecureToken"]
+        @status = response["ResponseHeader"]["Status"]
+        @token = response["RenewSessionResult"]["Token"]
+        @secure_token = response["RenewSessionResult"]["SecureToken"]
       end
 
     end

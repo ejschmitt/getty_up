@@ -1,5 +1,9 @@
 require 'getty_up/api/util'
 
+class Response < OpenStruct
+
+end
+
 module GettyUp
   module API
     module SearchForImages
@@ -14,7 +18,7 @@ module GettyUp
             :Query => { :SearchPhrase => phrase},
             :ResultOptions => {
               :ItemCount => count,
-              :ItemStartNumber => size
+              :ItemStartNumber => start
             },
             :Filter => { :ImageFamilies => ["creative"] }
           }
@@ -23,6 +27,13 @@ module GettyUp
 
         #status = response["ResponseHeader"]["Status"]
         #images = response["SearchForImagesResult"]["Images"]
+
+
+        result = OpenStruct.new
+        result.response_header = response["ResponseHeader"]#.inject({}){|memo, hsh| memo.merge({hsh.first.underscore.to_sym => hsh.last})}
+        result.images = response["SearchForImagesResult"]["Images"]
+        result
+
       end
     end
   end
