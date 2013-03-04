@@ -7,11 +7,11 @@ require "getty_up/version"
 Gem::Specification.new do |s|
   s.name        = "getty_up"
   s.version     = GettyUp::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of GettyUp."
-  s.description = "TODO: Description of GettyUp."
+  s.authors     = ["Erick Schmitt"]
+  s.email       = ["ejschmitt@gmail.com"]
+  s.homepage    = "https://github.com/ejschmitt/getty_up"
+  s.summary     = "Gem for using getty connect API"
+  s.description = "Getty connect gem"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
