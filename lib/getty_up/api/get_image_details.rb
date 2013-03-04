@@ -7,7 +7,7 @@ module GettyUp
 
       ENDPOINT = "https://connect.gettyimages.com/v1/search/GetImageDetails"
 
-      def get_image_details(assetIds)
+      def get_image_details(asset_ids)
 
         request = {
           :RequestHeader => {
@@ -16,7 +16,7 @@ module GettyUp
           },
           :GetImageDetailsRequestBody => {
             :CountryCode => "USA",
-            :ImageIds => assetIds,
+            :ImageIds => asset_ids,
             :Language => "en-us"
           }
         }

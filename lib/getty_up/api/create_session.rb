@@ -24,6 +24,12 @@ module GettyUp
         @token = response["CreateSessionResult"]["Token"]
         @status = response["ResponseHeader"]["Status"]
         @secure_token = response["CreateSessionResult"]["SecureToken"]
+        @token_duration = response["CreateSessionResult"]["TokenDurationMinutes"]
+        @token_expiration = @token_duration.minutes.from_now
+      end
+
+      def session_valid?
+        @token_expiration.present? && @token_expiration > Time.now
       end
 
     end

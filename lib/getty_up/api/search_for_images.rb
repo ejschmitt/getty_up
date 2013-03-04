@@ -11,23 +11,19 @@ module GettyUp
 
       ENDPOINT = "http://connect.gettyimages.com/v1/search/SearchForImages"
 
-      def search_for_images(phrase, start = 1, count = 25)
+      def search_for_images(phrase, start = 1, count = 25, options = {})
         request = {
           :RequestHeader => { :Token => @token},
           :SearchForImages2RequestBody => {
             :Query => { :SearchPhrase => phrase},
             :ResultOptions => {
-              :ItemCount => count,
-              :ItemStartNumber => start
+              ItemStartNumber: start,
+              ItemCount: count
             },
             :Filter => { :ImageFamilies => ["creative"] }
-          }
+          }.merge(options)
         }
         response = post_json(request, ENDPOINT)
-
-        #status = response["ResponseHeader"]["Status"]
-        #images = response["SearchForImagesResult"]["Images"]
-
 
         result = OpenStruct.new
         result.response_header = response["ResponseHeader"]#.inject({}){|memo, hsh| memo.merge({hsh.first.underscore.to_sym => hsh.last})}

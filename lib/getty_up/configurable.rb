@@ -1,7 +1,7 @@
 module GettyUp
   module Configurable
     attr_writer :system_id, :system_password, :api_username, :api_password
-    attr_accessor :status, :token, :secret_token
+    attr_accessor :status, :token, :secret_token, :token_duration, :token_expiration
 
     class << self
       def keys
@@ -12,7 +12,9 @@ module GettyUp
           :api_password,
           :status,
           :token,
-          :secret_token
+          :secret_token,
+          :token_duration,
+          :token_expiration
         ]
       end
     end
