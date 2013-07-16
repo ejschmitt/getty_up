@@ -19,8 +19,7 @@ module GettyUp
             :ResultOptions => {
               ItemStartNumber: start,
               ItemCount: count
-            },
-            :Filter => { :ImageFamilies => ["creative"] }
+            }
           }.merge(options)
         }
         response = post_json(request, ENDPOINT)
